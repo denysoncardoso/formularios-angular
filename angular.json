@@ -15,7 +15,8 @@
         "@schematics/angular:component": {
           "skipTests": true,
           "type": "component",
-          "addTypeToClassName": false
+          "addTypeToClassName": false,
+          "changeDetection": "OnPush"
         },
         "@schematics/angular:directive": {
           "skipTests": true,
