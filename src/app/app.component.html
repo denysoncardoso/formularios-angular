@@ -1,14 +1,17 @@
 <div class="navbar bg-base-100 shadow-sm flex justify-center">
   <ul class="menu menu-horizontal">
-    <li>
-      <details class="w-45">
-        <summary>Template Driven Forms</summary>
-        <ul>
-          <li><a>Sync Validations</a></li>
-          <li><a>Submenu 2</a></li>
-        </ul>
-      </details>
-    </li>
+    @for (menu of menu(); track menu.title) {
+      <li>
+        <details class="w-45">
+          <summary>{{ menu.title }}</summary>
+          <ul>
+            @for (submenu of menu.submenus; track submenu.title) {
+              <li><a [routerLink]="submenu.url">{{ submenu.title }}</a></li>
+            }
+          </ul>
+        </details>
+      </li>
+    }
   </ul>
 </div>
 <router-outlet></router-outlet>

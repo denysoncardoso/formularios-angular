@@ -1,12 +1,13 @@
 import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
-import {RouterModule, RouterOutlet, Routes} from '@angular/router';
+import {RouterModule, Routes} from '@angular/router';
+import {routes} from "./app.routes";
 
 interface Menuitem {
    title: string;
-   submenu: {
+   submenus: {
       title: string;
       url: string;
-   }[]
+   }[];
 }
 
 
@@ -46,5 +47,5 @@ function createMenuItems(routes: Routes): Menuitem[] {
    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
-
+   menu = signal(createMenuItems(routes));
 }
